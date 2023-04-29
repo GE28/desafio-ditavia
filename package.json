@@ -1,0 +1,20 @@
+{
+  "name": "desafio-ditavia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "",
+    "dev": ""
+  },
+  "author": "GE28",
+  "keywords": [
+    "backend"
+  ],
+  "license": "MIT",
+  "repository": "github:GE28/desafio-ditavia",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
