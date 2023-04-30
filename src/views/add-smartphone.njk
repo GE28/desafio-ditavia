@@ -1,0 +1,37 @@
+{% extends "base.njk" %}
+{% block title %}
+  Adicionar celular - Desafio Datavia</title>
+{% endblock %}
+
+{% block content %}
+{% if smartphone %}
+  <form id="smartphone-form" action="/add-smartphone/{{smartphone._id}}" method="GET">
+{% else %}
+  <form id="smartphone-form" action="/create-smartphone" method="GET">
+{% endif %}
+  <div id="add-smartphone">
+      <span id="form-title">Celular</span>
+  
+      <label for="brand">Marca</label>
+      <input type="text" value="{{smartphone.brand}}" name="brand" id="brand">
+
+      <label for="model">Modelo</label>
+      <input type="text" value="{{smartphone.model}}" name="model" id="model">
+
+      <label for="memoryCapacity">Memória</label>
+      <input type="number" value="{{smartphone.memoryCapacity}}" name="memoryCapacity" id="memoryCapacity">
+
+      <label for="releaseDate">Lançamento</label>
+      <input type="date" value="{{smartphone.releaseDate}}" name="releaseDate" id="releaseDate">
+  </div>
+  
+  <div id="form-actions">
+      <button class="action-button">
+        <a href="/">
+          Cancelar
+        </a>
+      </button>
+      <button type="submit" class="action-button">Salvar</button>
+  </div>
+</form>
+{% endblock %}

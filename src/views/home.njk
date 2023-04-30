@@ -1,0 +1,55 @@
+{% extends "base.njk" %}
+{% block title %}
+    Página Inicial - Desafio Datavia
+{% endblock %}
+
+{% block content %}
+    <button type="button" class="action-button">
+        <a href="/add-smartphone">Novo Celular</a>
+    </button>
+    <div id="smartphone-table">
+    <div id="brand">
+        <span>Marca</span>
+        {% for smart in smartphones %}
+            <span>{{ smart.brand }}</span>
+        {% endfor %}
+    </div>
+    <div id="model">
+        <span>Modelo</span>
+        {% for smart in smartphones %}
+            <span>{{ smart.model }}</span>
+        {% endfor %}
+    </div>
+    <div id="memory">
+        <span>Capacidade de Memória</span>
+        {% for smart in smartphones %}
+            <span>{{ smart.memoryCapacity }}</span>
+        {% endfor %}
+    </div>
+    <div id="release-date">
+        <span>Data de Lançamento</span>
+        {% for smart in smartphones %}
+            <span>{{ smart.releaseDate }}</span>
+        {% endfor %}
+    </div>
+    <div id="update">
+        <span>Alterar</span>
+        {% for smart in smartphones %}
+            <button>
+                <a href="/add-smartphone/{{smart._id}}">
+                    Alterar
+                </a>
+            </button>
+        {% endfor %}
+    </div>
+    <div id="delete">
+        <span>Excluir</span>
+        {% for smart in smartphones %}
+            <button>
+                <a href="/delete/{{smart._id}}">
+                    Excluir
+                </a>
+            </button>
+        {% endfor %}
+    </div>
+{% endblock %}
