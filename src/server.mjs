@@ -4,14 +4,14 @@ import path from 'path';
 
 import './db/conn.mjs';
 import smartphonesRoutes from './routes/Smartphones.mjs';
-// import viewsRoutes from './routes/Views.mjs';
+import viewsRoutes from './routes/Views.mjs';
 
 import { fileURLToPath } from 'url';
 
 const server = express();
 const __dirname = fileURLToPath(import.meta.url);
 
-server.use(express.static(psath.join(__dirname, '..', '..', 'public')))
+server.use(express.static(path.join(__dirname, '..', '..', 'public')))
 
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
@@ -22,7 +22,7 @@ nunjucks.configure("src/views", {
   noCache: true
 });
 
-// server.use('/', viewsRoutes);
+server.use('/', viewsRoutes);
 server.use('/smartphone', smartphonesRoutes);
 
 export { server };
