@@ -4,7 +4,7 @@ import path from 'path';
 
 import './db/conn.mjs';
 import smartphonesRoutes from './routes/Smartphones.mjs';
-import viewsRoutes from './routes/Views.mjs';
+import appRoutes from './app.mjs';
 
 import { fileURLToPath } from 'url';
 
@@ -22,7 +22,7 @@ nunjucks.configure("src/views", {
   noCache: true
 });
 
-server.use('/', viewsRoutes);
+server.use('/', appRoutes);
 server.use('/smartphone', smartphonesRoutes);
 
 export { server };
