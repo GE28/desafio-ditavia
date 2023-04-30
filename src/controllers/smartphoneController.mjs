@@ -27,6 +27,9 @@ export async function createSmartphone (req, res) {
     memoryCapacity: req.body.memoryCapacity,
     releaseDate: req.body.releaseDate
   };
+  
+  smartphone.releaseDate = new Date(smartphone.releaseDate)
+                          .toLocaleString('en-US', { timeZone: 'UTC' });
 
   try {
     const newSmartphone = await Smartphone.create(smartphone); 
@@ -44,7 +47,10 @@ export async function updateSmartphone (req, res) {
     model: req.body.model,
     memoryCapacity: req.body.memoryCapacity,
     releaseDate: req.body.releaseDate
-  };
+  }
+  
+  smartphone.releaseDate = new Date(smartphone.releaseDate)
+                          .toLocaleString('en-US', { timeZone: 'UTC' });;
 
   try {
     const updatedSmartphone = await Smartphone.findByIdAndUpdate(id, smartphone, { new: true });
