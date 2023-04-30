@@ -1,10 +1,28 @@
 import express from 'express';
+import nunjucks from 'nunjucks';
+import path from 'path';
+
 import './db/conn.mjs';
 import smartphonesRoutes from './routes/Smartphones.mjs';
+// import viewsRoutes from './routes/Views.mjs';
 
-const app = express();
+import { fileURLToPath } from 'url';
 
-app.use(express.json());
-app.use('/smartphone', smartphonesRoutes);
+const server = express();
+const __dirname = fileURLToPath(import.meta.url);
 
-export { app };
+server.use(express.static(psath.join(__dirname, '..', '..', 'public')))
+
+server.use(express.urlencoded({ extended: true }));
+server.use(express.json());
+
+server.set("view engine", "njk");
+nunjucks.configure("src/views", {
+  express: server,
+  noCache: true
+});
+
+// server.use('/', viewsRoutes);
+server.use('/smartphone', smartphonesRoutes);
+
+export { server };
