@@ -1,0 +1,56 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    border: 1px 0 solid var(--dark-color);
+}
+
+.smartphone-table {
+    border: 0.02rem solid var(--dark-color);
+}
+
+.smartphone-table .header-row > span {
+    background-color: var(--primary-color);
+    font-weight: 700;
+}
+
+.smartphone-table .header-row > span:nth-child(n + 5) {
+    justify-content: center;
+}
+
+.row:nth-child(even) {
+    background-color: #eee;
+    z-index: -1;
+}
+
+.row:nth-child(odd) {
+    background-color: #fff;
+    z-index: -1;
+}
+
+.row > span {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 0.4rem;
+    word-break: break-all;
+
+    border: 0.02rem solid var(--dark-color);
+}
+
+.row button {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-color: transparent;
+    border: none;
+    color: darkcyan;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.row button:hover {
+    color: dodgerblue;
+}
