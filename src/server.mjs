@@ -7,6 +7,6 @@ const server = express();
 
 server.use(express.json());
 
-server.use('/smartphone', smartphonesRoutes);
+server.use('/api/smartphone', smartphonesRoutes);
 
 export { server };
