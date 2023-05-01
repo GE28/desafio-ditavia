@@ -1,7 +1,6 @@
 import './loadEnvironment.mjs';
 import { server } from './server.mjs';
 import chalk from 'chalk';
-import open from 'open';
 
 const port = process.env.SERVER_PORT;
 
@@ -17,8 +16,5 @@ if (!process.env.SERVER_PORT) {
 
 server.listen(port, () => {
   console.log(`Express ${chalk.green('iniciado')} ${chalk.blue.bold(`(http://localhost:${port})`)}`);
-  console.log('A página será aberta automaticamente em 2 segundos...');
-  setTimeout(() => {
-    open(`http://localhost:${port}`);
-  }, 2000);
+  console.log(`Para iniciar o ${chalk.green('frontend')} execute ${chalk.blue.bold('yarn start:front')}`);
 });
