@@ -1,7 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react-swc';
 
-export default defineConfig({
-  plugins: [react()],
-  root: './frontend'
-})
+export default () => {
+  process.env = { ...process.env, ...loadEnv('development', process.cwd(), '') }
+
+  return defineConfig({
+    plugins: [react()],
+    envDir: process.cwd(),
+    envPrefix: 'SERVER_'
+  })
+}
